@@ -1,5 +1,5 @@
-index = (_req, res) => {
-  const data = "Jandy Kiger";
+const index = (_req, res) => {
+  const data = "Jason Kiger";
   res.send(data);
 };
 
