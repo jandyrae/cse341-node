@@ -1,12 +1,17 @@
 const show = require("express").Router();
 
-const {name} = require("../controllers/index");
+const {index} = require("../controllers/index");
 
-show.route("/", name);
-// show.get("/", (name));
+// show.route("/", name);
 
-show.get('/', (req, res) => {
-    res.send("Jason Kiger at routes index");
-});
+show.get("/", index);
+
+// show.get('/', (_req, res) => {
+//     res.send(name.index);
+// });
+
+// show.get('/', (req, res) => {
+//     res.send("Jason Kiger at routes index");
+// });
 
 module.exports = show;

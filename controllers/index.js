@@ -1,5 +1,6 @@
+const data = "Jason Kiger at controllers index";
+
 const index = (_req, res) => {
-  const data = "Jason Kiger";
   res.send(data);
 };
 
