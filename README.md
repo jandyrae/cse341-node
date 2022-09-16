@@ -1,3 +1,3 @@
-# cse341-node - https://github.com/jandyrae/cse341-node.git
+# cse341-node 
 
 ## weekOne render link: https://weekonepersonalassignment.onrender.com
