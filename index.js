@@ -10,4 +10,3 @@ app.use(routes);
 app.listen(port, () => {
     console.log(`Application listening on http://localhost:3000  or ${port}`);
 });
-
