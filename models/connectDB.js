@@ -1,45 +1,27 @@
-const dotenv = require("dotenv");
+const { MongoClient, ServerApiVersion } = require("mongodb");
+const dotenv = require('dotenv');
 dotenv.config();
 
-const {
-    MongoClient,
-    ServerApiVersion
-} = require("mongodb");
+// For memoizing the db
+let db;
 
-const uri = process.env.DB_URI;
-const client = new MongoClient(uri, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    serverApi: ServerApiVersion.v1,
-});
-async function connectDB() {
-    client.connect((err) => {
-        // perform actions on the collection object
-        const database = client.db(process.env.DB_NAME);
-        const contacts = database.collection("contacts");
-        console.log(contacts.collectionName)
-       
-        console.log("db connecting...");
-       
-        // client.close();
+const initialize = async () => {
+  if (db) return db;
+  try {
+    const client = new MongoClient(process.env.DB_URI, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+      serverApi: ServerApiVersion.v1,
     });
-    try {
-        await client.connect();
-        console.log("DB is connected")
-        await listDatabases(client);
-    } catch (e) {
-        console.error(e);
-    } finally {
-        await client.close();
-    }
-}
 
-async function listDatabases(client) {
-    databasesList = await client.db().admin().listDatabases();
-    console.log("Databases:");
-    databasesList.databases.forEach((db) => console.log(` - ${db.name}`));
-}
+    await client.connect();
+    console.log("Connected successfully to DB");
+    db = client.db('CSE341');
 
-module.exports = {
-    connectDB,
+    return db;
+  } catch (error) {
+    console.error("Error connecting to DB", error);
+  }
 };
+
+module.exports = initialize;
