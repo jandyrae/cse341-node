@@ -54,8 +54,8 @@ const createContact = async (req, res, next) => {
       console.log(`${result.insertedCount} document inserted`);
     }
   );
-  res.status(201).send();
-  res.send(document);
+  res.status(201);
+  res.json(req.body);
 };
 
 // update existing record in database PUT 204
@@ -78,8 +78,9 @@ const updateContact = async (req, res, next) => {
         },
       }
     );
-    res.json(req.body);
     res.status(204);
+    res.json(req.body);
+
   } catch (err) {
     next(err);
   }
@@ -92,12 +93,33 @@ const deleteContact = async (req, res, next) => {
     const document = await collection.deleteOne({
       _id: ObjectId(req.params.id),
     });
+    res.status(200);
     res.json(document);
-    res.status(200).send();
+
   } catch (err) {
     next(err);
   }
 };
+
+
+// const request = require('request');
+
+// const options = {
+//   method: 'GET',
+//   url: 'https://api.render.com/v1/services?limit=20',
+//   headers: {
+//     accept: 'application/json',
+//     authorization: `Bearer ${process.env.RENDER_APIKEY}`
+//   }
+// };
+
+// request(options, function (error, response, body) {
+//   if (error) throw new Error(error);
+
+//   console.log(body);
+// });
+
+
 
 module.exports = {
   getAll,
