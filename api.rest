@@ -1,9 +1,76 @@
-GET http://localhost:8080/contacts/632e940bac262785f13f4f3a
+// local requests
 
-GET http://localhost:8080/contacts/
+# GET one contact
+GET http://localhost:8080/contacts/632e9370ac262785f13f4f38 
 
-GET https://contactsapi.onrender.com/
+### GET all contacts
+GET http://localhost:8080/contacts
 
-GET https://contactsapi.onrender.com/contacts
+### POST is create 201
+POST http://localhost:8080/contacts/ HTTP/1.1
+Content-Type: application/json
 
+{
+    "firstName":"J", 
+    "lastName":"Kiger",    
+    "email": "", 
+    "birthday": "",
+    "favoriteColor": "" 
+} 
+
+### PUT is Update 204
+PUT http://localhost:8080/contacts/6337a900143b0c8b2fb03fbf HTTP/1.1
+Content-Type: application/json
+
+{
+    "firstName":"Maximus",
+    "lastName":"Kiger",
+    "email":"maximuskiger@gmail.com",
+    "birthday":"2010-06-23T07:00:00.000Z",
+    "favoriteColor":"green"
+}
+
+### DELETE contact 200
+DELETE http://localhost:8080/contacts/6337a900143b0c8b2fb03fbf HTTP/1.1
+
+
+# ------------------------RENDER LINKS--------------------------------
+
+###
+// on Render GET one contact
 GET https://contactsapi.onrender.com/contacts/632e9370ac262785f13f4f38
+
+###
+// on Render GET all contacts
+GET https://contactsapi.onrender.com/contacts 
+
+###
+// POST is create contact
+POST https://contactsapi.onrender.com/contacts HTTP/1.1
+Content-Type: application/json
+Authorization: `Bearer ${process.env.RENDER_APIKEY}`
+
+{
+    "firstName":"Ja", 
+    "lastName":"Kiger",
+    "email": "team.kiger@gmail.com", 
+    "birthday": "12/24/1977",
+    "favoriteColor": "camo" 
+} 
+
+
+###
+PUT https://contactsapi.onrender.com/contacts/ HTTP/1.1
+Content-Type: application/json
+Authorization: `Bearer ${process.env.RENDER_APIKEY}`
+
+{
+    "firstName":"Maximus",
+    "email":"maximuskiger@gmail.com",
+    "birthday":"2010-06-23T07:00:00.000Z",
+    "favoriteColor":"blue",
+    "lastName":"Kiger"
+}
+
+### DELETE contact 
+DELETE https://contactsapi.onrender.com/contacts/633655f8e9eca8d4c6d55acf HTTP/1.1
