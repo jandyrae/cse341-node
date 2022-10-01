@@ -1,9 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const {index, show} = require("../controllers/contacts");
 
-
-router.get('/contacts', index);
-router.get('/contacts/:id', show);
+router.use('/contacts', require('./contacts'));
 
 module.exports = router;
