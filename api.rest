@@ -37,11 +37,11 @@ DELETE http://localhost:8080/contacts/6337a900143b0c8b2fb03fbf HTTP/1.1
 # ------------------------RENDER LINKS--------------------------------
 
 ###
-// on Render GET one contact
+// GET one contact
 GET https://contactsapi.onrender.com/contacts/632e9370ac262785f13f4f38
 
 ###
-// on Render GET all contacts
+// GET all contacts
 GET https://contactsapi.onrender.com/contacts 
 
 ###
