@@ -13,7 +13,7 @@
   "paths": {
     "/contacts/": {
       "get": {
-        "description": "Find and return all contacts, no query needed, just execute GET",
+        "description": "Find and return all contacts, no query parameter needed, just execute GET",
         "parameters": [
           {
             "name": "firstName",
