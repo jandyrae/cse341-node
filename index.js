@@ -1,6 +1,7 @@
 const express = require("express");
 const config = require("./config/index");
 const bodyParser = require('body-parser');
+const cors = require("./middleware/opencors")
 const app = express();
 
 const swaggerUi = require('swagger-ui-express')
@@ -12,7 +13,7 @@ const connectDB = require('./models/connectDB')
 
 app
   // .use(bodyParser.urlencoded({ extended: false }))
-  .use(bodyParser.json())
+  .use([cors, bodyParser.json()])
   .use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', '*');
     console.log('Time: ', Date.now())
