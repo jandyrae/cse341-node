@@ -5,8 +5,8 @@ const doc = {
     title: 'Contacts API',
     description: 'Simple API for first and last name, email, birthday, and favorite color',
   },
-  host: ('localhost:8080', 'https://contacts-api-p0v8.onrender.com', 'https://cse341-contacts-frontend.netlify.app'),
-  schemes: ['http'],
+  host: ('localhost:8080', 'contacts-api-p0v8.onrender.com', 'cse341-contacts-frontend.netlify.app'),
+  schemes: ['http', 'https'],
 };
 
 const outputFile = './swagger.json';
