@@ -14,13 +14,6 @@
     "/contacts/": {
       "get": {
         "description": "Find and return all contacts, no query parameter needed, just execute GET",
-        "parameters": [
-          {
-            "name": "firstName",
-            "in": "query",
-            "type": "string"
-          }
-        ],
         "responses": {
           "200": {
             "description": "OK"

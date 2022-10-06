@@ -1,29 +1,30 @@
 const express = require("express");
 const config = require("./config/index");
-const bodyParser = require('body-parser');
-const cors = require("./middleware/opencors")
+const bodyParser = require("body-parser");
+const cors = require("./middleware/opencors");
 const app = express();
 
-const swaggerUi = require('swagger-ui-express')
-const swaggerFile = require('./swagger.json')
-
+const swaggerUi = require("swagger-ui-express");
+const swaggerFile = require("./swagger.json");
 
 const port = config.PORT || 8080;
-const connectDB = require('./models/connectDB')
+const connectDB = require("./models/connectDB");
 
 app
   // .use(bodyParser.urlencoded({ extended: false }))
   .use([cors, bodyParser.json()])
   .use((req, res, next) => {
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    console.log('Time: ', Date.now())
+    res.setHeader("Access-Control-Allow-Origin", "*");
+    console.log("Time: ", Date.now());
     next();
   })
-  .use('/', require('./routes/index'));
-  app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerFile));
+  .use("/", require("./routes/index"));
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerFile));
 
 app.listen(port, () => {
-  console.log(`Application listening on http://localhost:8080/ or ${port} see API documentation on http://localhost:8080/api-docs/`);
+  console.log(
+    `Application listening on http://localhost:8080/ or ${port} see API documentation on http://localhost:8080/api-docs/`
+  );
 });
 
 connectDB().catch(console.error);

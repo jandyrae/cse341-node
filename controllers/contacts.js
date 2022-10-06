@@ -3,12 +3,12 @@ const { ObjectId } = require("mongodb");
 
 const getAll = async (req, res, next) => {
   // retrieve all json in database GET
-  /* #swagger first name is not needed to execute this GET*/
-  const { firstName } = req.query;
+  /* #swagger.description first name is not needed to execute this GET*/
+  // const { firstName } = req.query;
   // takes the list and makes an object
   const filter = Object.fromEntries(
     Object.entries({
-      firstName,
+      // firstName,
     }).filter(([_k, v]) => v)
   );
   const collection = await _collection();
