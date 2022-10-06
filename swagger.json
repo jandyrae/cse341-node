@@ -60,7 +60,7 @@
             "description": "OK"
           },
           "201": {
-            "description": "Created"
+            "description": "Created new contact"
           }
         }
       }
@@ -121,7 +121,7 @@
             "description": "OK"
           },
           "204": {
-            "description": "No Content"
+            "description": "Updated contact"
           }
         }
       },
