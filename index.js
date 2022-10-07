@@ -14,7 +14,7 @@ app
   // .use(bodyParser.urlencoded({ extended: false }))
   .use([cors, bodyParser.json()])
   .use((req, res, next) => {
-    res.setHeader("Access-Control-Allow-Origin", "*");
+    // res.setHeader("Access-Control-Allow-Origin", "*");
     console.log("Time: ", Date.now());
     next();
   })
