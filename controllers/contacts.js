@@ -40,12 +40,12 @@ const _collection = async () => {
 };
 
 const createContact = async (req, res, next) => {
-  /* #swagger For testing purposes use 
+  /* #swagger.description For testing purposes use 
   {
     "firstName":"First",
     "lastName":"Last",
     "email":"email@gmail.com",
-    "birthday":"2010-06-23T07:00:00.000Z",
+    "birthday":"2010-06-23",
     "favoriteColor":"anyColor"
 }
   */
@@ -71,7 +71,7 @@ const createContact = async (req, res, next) => {
 };
 
 const updateContact = async (req, res, next) => {
-  /* #swagger For testing purposes use 
+  /* #swagger.description For testing purposes use 
   {
     "firstName":"FirstChange",
     "lastName":"LastChange",
@@ -108,7 +108,7 @@ const updateContact = async (req, res, next) => {
 };
 
 const deleteContact = async (req, res, next) => {
-  /* #swagger delete requires an id to delete use one shown from calling a GET
+  /* #swagger.description delete requires an id to delete use one shown from calling a GET
    */
   // delete records from database DELETE 200
   try {

@@ -11,15 +11,13 @@ const port = config.PORT || 8080;
 const connectDB = require("./models/connectDB");
 
 app
-  // .use(bodyParser.urlencoded({ extended: false }))
   .use([cors, bodyParser.json()])
   .use((req, res, next) => {
-    // res.setHeader("Access-Control-Allow-Origin", "*");
     console.log("Time: ", Date.now());
     next();
   })
-  .use("/", require("./routes/index"));
-app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerFile));
+  .use("/", require("./routes/index"))
+  .use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerFile));
 
 app.listen(port, () => {
   console.log(

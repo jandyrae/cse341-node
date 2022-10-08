@@ -2,7 +2,7 @@
   "swagger": "2.0",
   "info": {
     "title": "Contacts API",
-    "description": "Simple API for first and last name, email, birthday, and favorite color",
+    "description": "Simple API for first name, last name, email, birthday, and favorite color",
     "version": "1.0.0"
   },
   "host": "",
@@ -10,6 +10,8 @@
   "schemes": [
     "http", "https"
   ],
+  "consumes": ["application/json"],
+  "produces": ["application/json"],
   "paths": {
     "/contacts/": {
       "get": {
@@ -22,32 +24,30 @@
       },
       "post": {
         "description": "Creates new contact",
-        "parameters": [
-          {
-            "name": "body",
-            "in": "body",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "firstName": {
-                  "example": "any"
-                },
-                "lastName": {
-                  "example": "any"
-                },
-                "email": {
-                  "example": "any"
-                },
-                "favoriteColor": {
-                  "example": "any"
-                },
-                "birthday": {
-                  "example": "any"
-                }
+        "parameters": [{
+          "name": "body",
+          "in": "body",
+          "schema": {
+            "type": "object",
+            "properties": {
+              "firstName": {
+                "example": "any"
+              },
+              "lastName": {
+                "example": "any"
+              },
+              "email": {
+                "example": "any"
+              },
+              "favoriteColor": {
+                "example": "any"
+              },
+              "birthday": {
+                "example": "any"
               }
             }
           }
-        ],
+        }],
         "responses": {
           "200": {
             "description": "OK"
@@ -61,14 +61,12 @@
     "/contacts/{id}": {
       "get": {
         "description": "Returns the specified contact, requires an id (use one from the non specific GET)",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          }
-        ],
+        "parameters": [{
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "type": "string"
+        }],
         "responses": {
           "200": {
             "description": "OK"
@@ -77,8 +75,7 @@
       },
       "put": {
         "description": "Updates specific contact by id",
-        "parameters": [
-          {
+        "parameters": [{
             "name": "id",
             "in": "path",
             "required": true,
@@ -120,14 +117,12 @@
       },
       "delete": {
         "description": "Deletes specific contact by id",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          }
-        ],
+        "parameters": [{
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "type": "string"
+        }],
         "responses": {
           "200": {
             "description": "OK"
